@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Consultorio</title>
+
+  <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="loadFinanceiro()">
+
+<div class="finance-page">
+
+  <!-- HEADER -->
+  <div class="finance-header">
+
+    <div>
+      <h1>Financeiro - Consultório</h1>
+      <p>Receitas e faturamento do consultório</p>
+    </div>
+
+  </div>
+
+  <!-- CARDS -->
+  <div class="finance-cards">
+
+    <div class="finance-card">
+
+      <small>Receita Total</small>
+
+      <h2>R$ 700</h2>
+
+      <p>3 sessões pagas</p>
+
+    </div>
+
+    <div class="finance-card">
+
+      <small>A Receber</small>
+
+      <h2>R$ 2.150</h2>
+
+      <p>9 sessões pendentes</p>
+
+    </div>
+
+    <div class="finance-card danger">
+
+      <small>Despesas</small>
+
+      <h2>R$ 2.935</h2>
+
+      <p>Despesas do consultório</p>
+
+    </div>
+
+    <div class="finance-card">
+
+      <small>Lucro Líquido</small>
+
+      <h2>R$ -2.235</h2>
+
+      <p>Receita - Despesas</p>
+
+    </div>
+
+  </div>
+
+  <!-- GRÁFICO -->
+  <div class="finance-chart">
+
+    <h3>Receita Semanal - Maio 2026</h3>
+
+    <canvas id="financeChart"></canvas>
+
+  </div>
+
+  <!-- TABELA -->
+  <div class="finance-table">
+
+    <h3>Receitas por Sessão - Maio 2026</h3>
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Paciente</th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Status</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="financeTable"></tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+<script src="./src/js/financeiro.js"></script>
+
+</body>
+</html>

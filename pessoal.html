@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Financeiro Pessoal</title>
+
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="loadPessoal()">
+
+    <div class="pessoal-page">
+
+        <!-- HEADER -->
+        <div class="pessoal-header">
+
+            <div>
+                <h1>Financeiro - Pessoal</h1>
+                <p>Despesas pessoais e investimentos profissionais</p>
+            </div>
+
+        </div>
+
+        <!-- CARDS -->
+        <div class="pessoal-cards">
+
+            <div class="pessoal-card">
+
+                <small>Total Despesas Pessoais</small>
+
+                <h2>R$ 750</h2>
+
+                <p>2 despesas este mês</p>
+
+            </div>
+
+            <div class="pessoal-card">
+
+                <small>Recorrentes</small>
+
+                <h2>R$ 300</h2>
+
+                <p>1 despesa fixa</p>
+
+            </div>
+
+            <div class="pessoal-card warning">
+
+                <small>Avulsas</small>
+
+                <h2>R$ 450</h2>
+
+                <p>1 despesa avulsa</p>
+
+            </div>
+
+        </div>
+
+        <!-- GRID -->
+        <div class="pessoal-grid">
+
+            <!-- GRÁFICO -->
+            <div class="pessoal-chart">
+
+                <h3>Distribuição por Categoria</h3>
+
+                <canvas id="pessoalChart"></canvas>
+
+            </div>
+
+            <!-- LISTA -->
+            <div class="pessoal-list">
+
+                <div class="list-header">
+
+                    <h3>Despesas do Mês</h3>
+
+                    <button class="btn-primary">
+                        + Nova Despesa
+                    </button>
+
+                </div>
+
+                <div id="despesasList"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./src/js/pessoal.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prontuário</title>
+
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body onload="loadProntuario()">
+
+<div class="prontuario-page">
+
+  <!-- TOPO -->
+  <div class="prontuario-header">
+
+    <div>
+      <h1>Prontuário Digital</h1>
+      <p>Anotações clínicas e evolução terapêutica</p>
+    </div>
+
+  </div>
+
+  <!-- CONTEÚDO -->
+  <div class="prontuario-layout">
+
+    <!-- SIDEBAR PACIENTES -->
+    <aside class="patient-sidebar">
+
+      <input
+        type="text"
+        placeholder="Buscar paciente..."
+        id="searchPatient"
+      >
+
+      <div id="patientList"></div>
+
+    </aside>
+
+    <!-- PRONTUÁRIO -->
+    <main class="prontuario-content" id="prontuarioContent">
+
+      <div class="empty-prontuario">
+
+        <div class="empty-icon">
+          📄
+        </div>
+
+        <h2>Selecione um paciente</h2>
+
+        <p>
+          Escolha um paciente para visualizar o prontuário clínico.
+        </p>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+<script src="./src/js/prontuario.js"></script>
+
+</body>
+</html>

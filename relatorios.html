@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Relatórios</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
+
+    <!-- CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="loadRelatorios()">
+
+    <div class="reports-page">
+
+        <!-- HEADER -->
+        <div class="reports-header">
+
+            <div>
+                <h1>Relatórios</h1>
+                <p>Análise detalhada do consultório</p>
+            </div>
+
+            <div class="header-actions">
+
+                <select>
+                    <option>Maio 2026</option>
+                    <option>Abril 2026</option>
+                </select>
+
+                <button class="btn-outline">
+                    Exportar PDF
+                </button>
+
+                <button class="btn-primary">
+                    Exportar Excel
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARDS -->
+        <div class="reports-cards">
+
+            <div class="report-card">
+
+                <small>Faturamento</small>
+
+                <h2>R$ 700</h2>
+
+                <p>R$ 2.150 pendente</p>
+
+            </div>
+
+            <div class="report-card">
+
+                <small>Atendimentos</small>
+
+                <h2>4</h2>
+
+                <p>12 total agendado</p>
+
+            </div>
+
+            <div class="report-card">
+
+                <small>Pacientes Atendidos</small>
+
+                <h2>4</h2>
+
+                <p>Pacientes únicos</p>
+
+            </div>
+
+            <div class="report-card">
+
+                <small>Lucro Líquido</small>
+
+                <h2 class="danger-text">R$ -2.985</h2>
+
+                <p>Despesas: R$ 3.685</p>
+
+            </div>
+
+        </div>
+
+        <!-- GRID -->
+        <div class="reports-grid">
+
+            <!-- FATURAMENTO -->
+            <div class="chart-card large">
+
+                <div class="card-title">
+                    Evolução do Faturamento
+                </div>
+
+                <canvas id="revenueChart"></canvas>
+
+            </div>
+
+            <!-- PACIENTES -->
+            <div class="chart-card">
+
+                <div class="card-title">
+                    Atendimentos por Paciente
+                </div>
+
+                <canvas id="patientsChart"></canvas>
+
+            </div>
+
+            <!-- PAGAMENTOS -->
+            <div class="chart-card">
+
+                <div class="card-title">
+                    Status de Pagamento
+                </div>
+
+                <div class="chart-wrapper">
+
+                    <canvas id="paymentChart"></canvas>
+
+                </div>
+
+            </div>
+
+            <!-- TABELA -->
+            <div class="table-card">
+
+                <div class="card-title">
+                    Detalhamento por Sessão
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Data</th>
+                            <th>Paciente</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="sessionTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./src/js/relatorios.js"></script>
+
+</body>
+
+</html>

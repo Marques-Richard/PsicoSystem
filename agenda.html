@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda</title>
+
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body onload="loadAgenda()">
+
+<div class="agenda-page">
+
+  <!-- TOPO -->
+  <div class="agenda-header">
+
+    <div>
+      <h1>Agenda</h1>
+      <p>Visualização semanal de suas sessões</p>
+    </div>
+
+    <button class="btn-primary">
+      + Nova Sessão
+    </button>
+
+  </div>
+
+  <!-- NAVEGAÇÃO -->
+  <div class="week-nav">
+
+    <div class="week-buttons">
+      <button>‹</button>
+      <button>›</button>
+    </div>
+
+    <h2>11 de maio - 17 de maio de 2026</h2>
+
+    <button class="today-btn">
+      Hoje
+    </button>
+
+  </div>
+
+  <!-- AGENDA -->
+  <div class="calendar">
+
+    <!-- CABEÇALHO -->
+    <div class="calendar-header">
+
+      <div class="time-col">
+        Horário
+      </div>
+
+      <div class="day-header">SEGUNDA <span>11</span></div>
+      <div class="day-header">TERÇA <span>12</span></div>
+      <div class="day-header">QUARTA <span>13</span></div>
+      <div class="day-header">QUINTA <span>14</span></div>
+      <div class="day-header">SEXTA <span>15</span></div>
+      <div class="day-header">SÁBADO <span>16</span></div>
+      <div class="day-header active">DOMINGO <span>17</span></div>
+
+    </div>
+
+    <!-- CORPO -->
+    <div class="calendar-body" id="calendarBody"></div>
+
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+
+  <div class="modal-content details">
+
+    <button class="close" onclick="closeModal()">✕</button>
+
+    <h2>Detalhes da Sessão</h2>
+
+    <div class="patient-info">
+      <div class="avatar">👤</div>
+
+      <div>
+        <h3 id="modalPaciente">Maria Silva</h3>
+        <p>Atendimento Presencial</p>
+      </div>
+    </div>
+
+    <div class="details-grid">
+
+      <div>
+        <small>Data:</small>
+        <strong>15 de maio de 2026</strong>
+      </div>
+
+      <div>
+        <small>Horário:</small>
+        <strong>09:00 - 10:00</strong>
+      </div>
+
+      <div>
+        <small>Valor:</small>
+        <strong>R$ 250</strong>
+      </div>
+
+      <div>
+        <small>Pagamento:</small>
+        <span class="badge paid">Pago</span>
+      </div>
+
+      <div>
+        <small>Status:</small>
+        <span class="badge done">Realizada</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./src/js/agenda.js"></script>
+
+</body>
+</html>

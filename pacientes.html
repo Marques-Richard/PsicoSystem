@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pacientes</title>
+
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body onload="loadPacientes()">
+
+<div class="patients-page">
+
+  <!-- TOPO -->
+  <div class="patients-header">
+
+    <div>
+      <h1>Pacientes</h1>
+      <p>Gerencie seus pacientes e histórico clínico</p>
+    </div>
+
+  </div>
+
+  <!-- AÇÕES -->
+  <div class="patients-actions">
+
+    <div class="search-box">
+      <input type="text" placeholder="Buscar paciente por nome ou e-mail...">
+    </div>
+
+    <div class="filters">
+
+      <button class="active-filter">
+        Todos
+      </button>
+
+      <button>
+        Ativos
+      </button>
+
+      <button>
+        Inativos
+      </button>
+
+    </div>
+
+    <button class="btn-primary">
+      + Novo Paciente
+    </button>
+
+  </div>
+
+  <!-- LISTA -->
+  <div class="patients-container">
+
+    <div class="patients-title">
+      <h3>Pacientes (5)</h3>
+    </div>
+
+    <div id="patientsList"></div>
+
+  </div>
+
+</div>
+
+<script src="./src/js/pacientes.js"></script>
+
+</body>
+</html>

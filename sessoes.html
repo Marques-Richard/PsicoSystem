@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sessões</title>
+
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
+</head>
+
+<body onload="loadSessoes()">
+
+    <div class="sessoes-page">
+
+        <!-- HEADER -->
+        <div class="sessoes-header">
+
+            <div>
+                <h1>Sessões</h1>
+                <p>Gerenciamento de sessões e pagamentos</p>
+            </div>
+
+        </div>
+
+        <!-- ALERTA -->
+        <div class="payment-alert">
+
+            <div class="alert-left">
+                ⚠️
+                <strong>
+                    2 sessões realizadas aguardando pagamento
+                </strong>
+
+                <span>(R$ 450 pendente)</span>
+            </div>
+
+        </div>
+
+        <!-- FILTROS -->
+        <div class="sessoes-filters">
+
+            <input type="text" placeholder="Buscar por paciente...">
+
+            <select>
+                <option>Todos os status</option>
+                <option>Agendada</option>
+                <option>Realizada</option>
+                <option>Cancelada</option>
+            </select>
+
+            <select>
+                <option>Todos</option>
+                <option>Pago</option>
+                <option>Pendente</option>
+            </select>
+
+        </div>
+
+        <!-- TABELA -->
+        <div class="table-container">
+
+            <h3>Sessões (12)</h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Tipo</th>
+                        <th>Status</th>
+                        <th>Valor</th>
+                        <th>Pagamento</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="sessionsTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="./src/js/sessoes.js"></script>
+
+</body>
+
+</html>
