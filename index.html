@@ -1,27 +1,304 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Sistema Psicológico</title>
-  <link rel="stylesheet" href="./src/css/style.css"/>
-  <link rel="stylesheet" href="./src/css/reset.css">
-  <link rel="stylesheet" href="./src/css/responsivo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsicoSystem - Gestão clínica</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
 </head>
-<body class="login-body">
 
-  <div class="login-container">
-    <h1>PsicoSystem</h1>
-    <p>Acesso ao sistema</p>
+<body onload="checkAuth()">
 
-    <input type="text" id="user" placeholder="Usuário"/>
-    <input type="password" id="pass" placeholder="Senha"/>
+    <div class="layout">
 
-    <button type="button" onclick="login()">Entrar</button>
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>PsicoSystem</h2>
+                <small>Gestão clínica</small>
+            </div>
 
-    <p id="error"></p>
-  </div>
+            <nav>
+                <h4>Principal</h4>
+                <a href="agenda.html">📅 Agenda</a>
+                <a href="pacientes.html">👤 Pacientes</a>
+                <a href="prontuario.html">📘 Prontuário</a>
+                <a href="sessoes.html">💬 Sessões</a>
 
-  <script src="./src/js/auth.js"></script>
+                <h4>Financeiro</h4>
+                <a href="consulturio.html">🏢 Consultório</a>
+                <a href="pessoal.html">👩‍⚕️ Pessoal</a>
+
+                <h4>Análise</h4>
+                <a href="relatorios.html">📊 Relatórios</a>
+            </nav>
+
+            <!-- FOOTER SIDEBAR -->
+            <div class="sidebar-footer">
+
+                <h5>Richard Marques</h5>
+
+                <span>
+                    Desenvolvedor Front-End
+                </span>
+
+                <p>
+                    Criando interfaces modernas, responsivas e focadas na experiência do usuário.
+                </p>
+
+                <div class="footer-contact">
+
+                    <small>🚀 Aberto a oportunidades</small>
+
+                    <small>📧 richardmarques.tb@gmail.com</small>
+
+                    <a href="https://wa.me/5548996317414" target="_blank" class="whatsapp-link">
+                        📱 (48) 99631-7414
+                    </a>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="content">
+
+            <!-- HEADER -->
+            <div class="dashboard-header">
+
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Visão geral do seu consultório</p>
+                </div>
+
+                <button class="btn-primary">
+                    + Nova Sessão
+                </button>
+
+            </div>
+
+            <!-- CARDS -->
+            <section class="dashboard-cards">
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+                        <span>Sessões Hoje</span>
+                        <div class="icon green">📅</div>
+                    </div>
+
+                    <h2>4</h2>
+
+                    <p>4 agendadas</p>
+
+                </div>
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+                        <span>Faturamento do Mês</span>
+                        <div class="icon">💲</div>
+                    </div>
+
+                    <h2>R$ 700</h2>
+
+                    <p class="positive">
+                        ↗ +12% vs mês anterior
+                    </p>
+
+                </div>
+
+                <div class="dashboard-card">
+
+                    <div class="card-top">
+                        <span>Valores Pendentes</span>
+                        <div class="icon warning">🕒</div>
+                    </div>
+
+                    <h2>R$ 450</h2>
+
+                    <p>1 sessões não pagas</p>
+
+                </div>
+
+                <div class="dashboard-card alert-card">
+
+                    <div class="card-top">
+                        <span>Alertas</span>
+                        <div class="icon danger">⚠</div>
+                    </div>
+
+                    <h2>1</h2>
+
+                    <p>Sessões realizadas não pagas</p>
+
+                </div>
+
+            </section>
+
+            <!-- GRID -->
+            <section class="dashboard-grid">
+
+                <!-- GRAFICO -->
+                <div class="dashboard-box large">
+
+                    <div class="box-title">
+                        📈 Faturamento Mensal
+                    </div>
+
+                    <canvas id="revenueChart"></canvas>
+
+                </div>
+
+                <!-- PACIENTES -->
+                <div class="dashboard-box">
+
+                    <div class="box-title">
+                        👥 Atendimentos por Paciente
+                    </div>
+
+                    <canvas id="patientsChart"></canvas>
+
+                </div>
+
+                <!-- PAGAMENTO -->
+                <div class="dashboard-box">
+
+                    <div class="box-title">
+                        💰 Taxa de Pagamento
+                    </div>
+
+                    <div class="chart-center">
+
+                        <div class="donut-chart">
+
+                            <canvas id="paymentChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- AGENDA -->
+                <div class="dashboard-box">
+
+                    <!-- TÍTULO FIXO -->
+                    <div class="card-header">
+
+                        <div class="box-title">
+                            📅 Agenda de Hoje
+                        </div>
+
+                    </div>
+
+                    <!-- ÁREA COM SCROLL -->
+                    <div class="schedule-scroll">
+
+                        <div class="today-list">
+
+                            <div class="today-item">
+
+                                <div>
+                                    <strong>09:00</strong>
+                                    <h4>Maria Silva</h4>
+                                    <small>Presencial</small>
+                                </div>
+
+                                <span class="status pending">
+                                    Pendente
+                                </span>
+
+                            </div>
+
+                            <div class="today-item">
+
+                                <div>
+                                    <strong>10:30</strong>
+                                    <h4>João Santos</h4>
+                                    <small>Presencial</small>
+                                </div>
+
+                                <span class="status pending">
+                                    Pendente
+                                </span>
+
+                            </div>
+
+                            <div class="today-item">
+
+                                <div>
+                                    <strong>14:00</strong>
+                                    <h4>Carlos Ferreira</h4>
+                                    <small>Online</small>
+                                </div>
+
+                                <span class="status paid">
+                                    Pago
+                                </span>
+
+                            </div>
+
+                            <!-- EXEMPLO EXTRA -->
+                            <div class="today-item">
+
+                                <div>
+                                    <strong>16:00</strong>
+                                    <h4>Ana Oliveira</h4>
+                                    <small>Online</small>
+                                </div>
+
+                                <span class="status pending">
+                                    Pendente
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER MOBILE -->
+<div class="mobile-footer">
+
+    <h4>Richard Marques</h4>
+
+    <p>
+        Desenvolvedor Front-End
+    </p>
+
+    <small>
+        Criando interfaces modernas, responsivas
+        e focadas na experiência do usuário.
+    </small>
+
+    <a href="https://wa.me/5548996317414" target="_blank">
+        📱 (48) 99631-7414
+    </a>
+
+    <a href="mailto:richardmarques.tb@gmail.com">
+        📧 richardmarques.tb@gmail.com
+    </a>
+
+</div>
+
+        </main>
+
+    </div>
+
+    <script src="./src/js/auth.js"></script>
+    <script src="./src/js/app.js"></script>
+    <script src="./src/js/agenda.js"></script>
+
 </body>
+
 </html>
