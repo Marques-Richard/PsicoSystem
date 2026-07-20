@@ -1,172 +1,125 @@
 /* ========================================
-   RESPONSIVO GLOBAL
+   RESPONSIVO - COMPLEMENTAR
 ======================================== */
 
 /* ========================================
    TABLET / NOTEBOOK
 ======================================== */
 
-@media (max-width: 1200px){
-
-  /* LAYOUT */
-
-  .layout{
-    flex-direction:column;
-  }
-
-  .sidebar{
-    width:100%;
-    border-right:none;
-    border-bottom:1px solid rgba(137,146,129,.15);
-  }
-
-  .sidebar nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-
-  .sidebar h4{
-    width:100%;
-  }
-
-  /* DASHBOARD */
-
+@media (max-width: 1200px) {
   .dashboard-cards,
   .reports-cards,
   .finance-cards,
-  .pessoal-cards{
-    grid-template-columns:repeat(2,1fr);
+  .pessoal-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .dashboard-grid,
   .reports-grid,
-  .pessoal-grid{
-    grid-template-columns:1fr;
+  .pessoal-grid {
+    grid-template-columns: 1fr;
   }
 
-  /* PRONTUARIO */
-
-  .prontuario-layout{
-    flex-direction:column;
+  .prontuario-layout {
+    grid-template-columns: 1fr;
   }
 
-  .patient-sidebar{
-    width:100%;
+  .patient-sidebar {
+    height: auto;
+    max-height: 280px;
   }
-
-  /* TABELAS */
 
   .table-container,
   .finance-table,
-  .table-card{
-    overflow-x:auto;
+  .table-card {
+    overflow-x: auto;
   }
 
-  table{
-    min-width:900px;
+  table {
+    min-width: 700px;
   }
-
 }
 
 /* ========================================
    CELULARES
 ======================================== */
 
-@media (max-width: 768px){
-
-  body{
-    overflow-x:hidden;
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
   }
 
-  /* PÁGINAS */
-
-  .content,
-  .agenda-page,
-  .patients-page,
-  .finance-page,
-  .pessoal-page,
-  .reports-page,
-  .prontuario-page,
-  .sessoes-page{
-    padding:20px 15px;
+  .layout {
+    flex-direction: column;
   }
 
-  /* SIDEBAR */
-
-  .sidebar{
-    width:100%;
-    padding:20px 15px;
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+    display: none;
   }
 
-  .sidebar nav{
-    display:flex;
-    flex-direction:column;
-    gap:5px;
+  .sidebar.open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 999;
+    box-shadow: var(--shadow-xl);
   }
 
-  .sidebar a{
-    padding:12px;
-    font-size:15px;
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .sidebar-footer{
-  display:none;
-}
+  .sidebar nav h4 {
+    width: 100%;
+    margin: 12px 0 4px;
+  }
 
-   .mobile-footer{
+  .sidebar a {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
 
-  display:flex;
+  .sidebar-footer {
+    display: none;
+  }
 
-  flex-direction:column;
+  .mobile-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+    margin-top: 24px;
+    border-top: 1px solid var(--border-color);
+    gap: 8px;
+  }
 
-  align-items:center;
+  .mobile-footer h4 {
+    color: var(--primary);
+    font-size: 16px;
+  }
 
-  justify-content:center;
+  .mobile-footer a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+  }
 
-  text-align:center;
-
-  gap:10px;
-
-  margin-top:30px;
-
-  padding:30px 20px;
-
-  border-top:1px solid rgba(137,146,129,.15);
-
-  color:var(--text-secondary);
-
-  background:white;
-
-  border-radius:20px;
-
-  box-shadow:var(--shadow);
-}
-
-.mobile-footer h4{
-  color:var(--primary);
-  font-size:18px;
-}
-
-.mobile-footer p{
-  font-weight:600;
-  color:var(--secondary);
-}
-
-.mobile-footer small{
-  line-height:1.5;
-  max-width:280px;
-}
-
-.mobile-footer a{
-  text-decoration:none;
-  color:var(--primary);
-  font-weight:600;
-}
-
-  
-
-  /* HEADERS */
+  .content {
+    padding: 20px;
+    max-width: 100%;
+  }
 
   .dashboard-header,
   .agenda-header,
@@ -175,10 +128,10 @@
   .pessoal-header,
   .reports-header,
   .prontuario-header,
-  .sessoes-header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:18px;
+  .sessoes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 
   .dashboard-header h1,
@@ -188,319 +141,145 @@
   .pessoal-header h1,
   .reports-header h1,
   .prontuario-header h1,
-  .sessoes-header h1{
-    font-size:30px;
+  .sessoes-header h1 {
+    font-size: 28px;
   }
-
-  /* BOTÕES */
-
-  .btn-primary,
-  .btn-outline,
-  .today-btn{
-    width:100%;
-  }
-
-  /* CARDS */
 
   .dashboard-cards,
   .reports-cards,
   .finance-cards,
-  .pessoal-cards{
-    grid-template-columns:1fr;
+  .pessoal-cards {
+    grid-template-columns: 1fr;
   }
 
   .dashboard-grid,
   .reports-grid,
-  .pessoal-grid{
-    grid-template-columns:1fr;
-    gap:20px;
+  .pessoal-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .dashboard-card,
-  .report-card,
-  .finance-card,
-  .pessoal-card,
-  .dashboard-box,
-  .chart-card,
-  .table-card,
-  .finance-chart,
-  .finance-table,
-  .pessoal-chart,
-  .pessoal-list{
-    padding:20px;
+  .dashboard-box {
+    height: auto;
+    min-height: 280px;
   }
 
-  /* ========================================
-     AGENDA SEMANAL
-  ======================================== */
-
-  .week-nav{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:15px;
+  .btn-primary,
+  .btn-outline,
+  .today-btn {
+    width: 100%;
   }
 
-  .calendar{
-
-    width:100%;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    border-radius:18px;
-
-    -webkit-overflow-scrolling:touch;
+  .week-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
 
-  .calendar::-webkit-scrollbar{
-    height:8px;
-  }
-
-  .calendar::-webkit-scrollbar-thumb{
-    background:rgba(80,138,126,.4);
-    border-radius:999px;
+  .calendar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .calendar-header,
-  .calendar-body{
-
-    min-width:1200px;
+  .calendar-body {
+    min-width: 800px;
   }
 
-  /* MODAL */
-
-  .modal-content{
-    width:95%;
-    padding:20px;
+  .patients-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .details-grid{
-    grid-template-columns:1fr;
+  .filters {
+    overflow-x: auto;
+    padding-bottom: 4px;
+    display: flex;
+    gap: 8px;
   }
 
-  /* ========================================
-     DASHBOARD
-  ======================================== */
-
-  .today-item{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
+  .sessoes-filters {
+    flex-direction: column;
   }
 
-  .today-item .status{
-    align-self:flex-start;
+  .sessoes-filters input {
+    min-width: auto;
   }
 
-  .schedule-scroll{
-    max-height:320px;
+  .prontuario-grid {
+    grid-template-columns: 1fr;
   }
 
-  /* ========================================
-     PACIENTES
-  ======================================== */
-
-  .patients-actions{
-    flex-direction:column;
-    align-items:stretch;
-    gap:15px;
+  .modal-content {
+    padding: 28px 20px;
+    width: 95%;
   }
 
-  .search-box input{
-    width:100%;
+  .details-grid {
+    grid-template-columns: 1fr;
   }
 
-  .filters{
-    width:100%;
-    overflow-x:auto;
-    display:flex;
-    gap:10px;
-    padding-bottom:5px;
-  }
-
-  .filters button{
-    white-space:nowrap;
-  }
-
-  /* ========================================
-     PRONTUARIO
-  ======================================== */
-
-  .prontuario-layout{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-  }
-
-  .patient-sidebar{
-
-    width:100%;
-
-    max-height:280px;
-
-    overflow-y:auto;
-  }
-
-  .prontuario-content{
-
-    width:100%;
-
-    min-height:auto;
-
-    padding:20px;
-  }
-
-  /* ========================================
-     FINANCEIRO / CONSULTORIO
-  ======================================== */
-
-  .finance-cards{
-
-    grid-template-columns:1fr;
-
-    gap:18px;
-  }
-
-  .finance-chart,
-  .finance-table{
-
-    width:100%;
-  }
-
-  .finance-table{
-
-    overflow-x:auto;
-  }
-
-  .finance-table table{
-
-    min-width:700px;
-  }
-
-  /* ========================================
-     FINANCEIRO PESSOAL
-  ======================================== */
-
-  .pessoal-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-  }
-
-  .pessoal-chart,
-  .pessoal-list{
-
-    width:100%;
-  }
-
-  /* ========================================
-     RELATORIOS
-  ======================================== */
-
-  .header-actions{
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
   }
 
   .header-actions select,
-  .header-actions button{
-
-    width:100%;
+  .header-actions button {
+    flex: 1;
+    min-width: 120px;
   }
 
-  .reports-grid{
+  .patient-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 
-    display:grid;
+  .patient-right {
+    width: 100%;
+    justify-content: space-between;
+  }
 
-    grid-template-columns:1fr;
+  .today-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-    gap:20px;
+  .today-item .status {
+    align-self: flex-start;
   }
 
   .chart-card,
-  .table-card{
-
-    width:100%;
+  .table-card {
+    height: auto;
+    min-height: 320px;
   }
 
-  .table-card{
-
-    overflow-x:auto;
+  .schedule-scroll {
+    max-height: 320px;
   }
 
-  .table-card table{
-
-    min-width:700px;
+  .donut-chart {
+    width: 180px;
+    height: 180px;
   }
 
-  /* ========================================
-     SESSOES
-  ======================================== */
-
-  .sessoes-filters{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
+  /* Menu Toggle */
+  .menu-toggle {
+    display: flex !important;
   }
-
-  .sessoes-filters input,
-  .sessoes-filters select{
-
-    width:100%;
-  }
-
-  .table-container{
-
-    overflow-x:auto;
-  }
-
-  .table-container table{
-
-    min-width:1100px;
-  }
-
-  /* CHARTS */
-
-  canvas{
-    max-width:100% !important;
-    height:auto !important;
-  }
-
-  .chart-wrapper,
-  .chart-center{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-
-  .donut-chart{
-    width:220px;
-    height:220px;
-  }
-
 }
 
 /* ========================================
    CELULARES PEQUENOS
 ======================================== */
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
+  .content {
+    padding: 16px;
+  }
 
   .dashboard-header h1,
   .agenda-header h1,
@@ -509,15 +288,15 @@
   .pessoal-header h1,
   .reports-header h1,
   .prontuario-header h1,
-  .sessoes-header h1{
-    font-size:26px;
+  .sessoes-header h1 {
+    font-size: 24px;
   }
 
   .dashboard-card h2,
   .report-card h2,
   .finance-card h2,
-  .pessoal-card h2{
-    font-size:24px;
+  .pessoal-card h2 {
+    font-size: 28px;
   }
 
   .dashboard-box,
@@ -526,196 +305,29 @@
   .finance-chart,
   .finance-table,
   .pessoal-chart,
-  .pessoal-list{
-    padding:16px;
+  .pessoal-list,
+  .patients-container,
+  .table-container {
+    padding: 16px;
   }
 
-  .today-item{
-    padding:14px;
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
   }
 
-  .donut-chart{
-    width:180px;
-    height:180px;
+  .donut-chart {
+    width: 160px;
+    height: 160px;
   }
 
-}
-
-/* ========================================
-   RESPONSIVO - FINANCEIRO / RELATÓRIOS
-======================================== */
-
-@media (max-width: 768px){
-
-  /* ========================================
-     FINANCEIRO CONSULTÓRIO
-  ======================================== */
-
-  .finance-page{
-    padding:20px 15px;
+  .today-item {
+    padding: 14px;
   }
 
-  .finance-header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:15px;
+  .modal-content {
+    padding: 20px;
   }
-
-  .finance-header h1{
-    font-size:30px;
-  }
-
-  /* CARDS */
-  .finance-cards{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-
-  .finance-card{
-    padding:20px;
-  }
-
-  .finance-card h2{
-    font-size:28px;
-  }
-
-  /* GRÁFICO */
-  .finance-chart{
-    padding:20px;
-    overflow:hidden;
-  }
-
-  .finance-chart canvas{
-    width:100% !important;
-    height:auto !important;
-  }
-
-  /* TABELA */
-  .finance-table{
-    padding:20px;
-    overflow-x:auto;
-  }
-
-  .finance-table table{
-    min-width:700px;
-  }
-
-  /* ========================================
-     RELATÓRIOS
-  ======================================== */
-
-  .reports-page{
-    padding:20px 15px;
-  }
-
-  .reports-header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:18px;
-  }
-
-  .reports-header h1{
-    font-size:30px;
-  }
-
-  /* BOTÕES */
-  .header-actions{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-
-  .header-actions select,
-  .header-actions button{
-    width:100%;
-  }
-
-  /* CARDS */
-  .reports-cards{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-
-  .report-card{
-    padding:20px;
-  }
-
-  .report-card h2{
-    font-size:28px;
-  }
-
-  /* GRID */
-  .reports-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-
-  /* CARDS DOS GRÁFICOS */
-  .chart-card,
-  .table-card{
-    padding:20px;
-    overflow:hidden;
-  }
-
-  /* GRÁFICOS */
-  .chart-card canvas{
-    width:100% !important;
-    height:auto !important;
-  }
-
-  /* DONUT */
-  .chart-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
-
-  .chart-wrapper canvas{
-    max-width:220px !important;
-    max-height:220px !important;
-  }
-
-  /* TABELA */
-  .table-card{
-    overflow-x:auto;
-  }
-
-  .table-card table{
-    min-width:700px;
-  }
-
-}
-
-/* ========================================
-   CELULARES PEQUENOS
-======================================== */
-
-@media (max-width: 480px){
-
-  .finance-header h1,
-  .reports-header h1{
-    font-size:26px;
-  }
-
-  .finance-card h2,
-  .report-card h2{
-    font-size:24px;
-  }
-
-  .finance-chart,
-  .finance-table,
-  .chart-card,
-  .table-card{
-    padding:16px;
-  }
-
-  .chart-wrapper canvas{
-    max-width:180px !important;
-    max-height:180px !important;
-  }
-
 }

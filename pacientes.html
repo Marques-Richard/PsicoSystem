@@ -1,73 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Pacientes</title>
-
-  <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="stylesheet" href="./src/css/reset.css">
-  <link rel="stylesheet" href="./src/css/responsivo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsicoSystem - Pacientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
 </head>
 
-<body onload="loadPacientes()">
+<body>
 
-<div class="patients-page">
+<div class="layout">
 
-  <!-- TOPO -->
-  <div class="patients-header">
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>🧠 Psico<span>System</span></h2>
+            <small>Gestão clínica</small>
+        </div>
 
-    <div>
-      <h1>Pacientes</h1>
-      <p>Gerencie seus pacientes e histórico clínico</p>
-    </div>
+        <nav>
+            <h4>Principal</h4>
+            <a href="index.html"><span class="icon">📊</span> Dashboard</a>
+            <a href="agenda.html"><span class="icon">📅</span> Agenda</a>
+            <a href="pacientes.html" class="active"><span class="icon">👤</span> Pacientes</a>
+            <a href="prontuario.html"><span class="icon">📘</span> Prontuário</a>
+            <a href="sessoes.html"><span class="icon">💬</span> Sessões</a>
 
-  </div>
+            <h4>Financeiro</h4>
+            <a href="consultorio.html"><span class="icon">🏢</span> Consultório</a>
+            <a href="pessoal.html"><span class="icon">👩‍⚕️</span> Pessoal</a>
 
-  <!-- AÇÕES -->
-  <div class="patients-actions">
+            <h4>Análise</h4>
+            <a href="relatorios.html"><span class="icon">📈</span> Relatórios</a>
+        </nav>
 
-    <div class="search-box">
-      <input type="text" placeholder="Buscar paciente por nome ou e-mail...">
-    </div>
+        <div class="sidebar-footer">
+            <div class="avatar">RM</div>
+            <h5>Richard Marques</h5>
+            <span class="role">Desenvolvedor Front-End</span>
+            <div class="contact-info">
+                <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            </div>
+        </div>
+    </aside>
 
-    <div class="filters">
+    <!-- CONTEÚDO -->
+    <main class="content patients-page">
 
-      <button class="active-filter">
-        Todos
-      </button>
+        <div class="patients-page">
 
-      <button>
-        Ativos
-      </button>
+            <!-- TOPO -->
+            <div class="patients-header">
+                <div>
+                    <h1>Pacientes</h1>
+                    <p>Gerencie seus pacientes e histórico clínico</p>
+                </div>
+            </div>
 
-      <button>
-        Inativos
-      </button>
+            <!-- AÇÕES -->
+            <div class="patients-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="🔍 Buscar paciente por nome ou e-mail...">
+                </div>
+                <div class="filters">
+                    <button class="active-filter">Todos</button>
+                    <button>Ativos</button>
+                    <button>Inativos</button>
+                </div>
+                <button class="btn-primary">➕ Novo Paciente</button>
+            </div>
 
-    </div>
+            <!-- LISTA -->
+            <div class="patients-container">
+                <div class="patients-title">
+                    <h3>Pacientes (5)</h3>
+                </div>
+                <div id="patientsList"></div>
+            </div>
 
-    <button class="btn-primary">
-      + Novo Paciente
-    </button>
+        </div>
 
-  </div>
+        <!-- FOOTER MOBILE -->
+        <div class="mobile-footer">
+            <div class="avatar" style="width:48px;height:48px;border-radius:50%;background:var(--secondary);display:flex;align-items:center;justify-content:center;font-size:20px;color:white;font-weight:600;margin:0 auto 12px;">RM</div>
+            <h4>Richard Marques</h4>
+            <p style="font-weight:500;color:var(--secondary);">Desenvolvedor Front-End</p>
+            <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            <a href="mailto:richardmarques.tb@gmail.com">📧 richardmarques.tb@gmail.com</a>
+        </div>
 
-  <!-- LISTA -->
-  <div class="patients-container">
-
-    <div class="patients-title">
-      <h3>Pacientes (5)</h3>
-    </div>
-
-    <div id="patientsList"></div>
-
-  </div>
+    </main>
 
 </div>
 
 <script src="./src/js/pacientes.js"></script>
+<script src="./src/js/app.js"></script>
 
 </body>
 </html>

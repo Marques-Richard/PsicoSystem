@@ -1,70 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Prontuário</title>
-
-  <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="stylesheet" href="./src/css/reset.css">
-  <link rel="stylesheet" href="./src/css/responsivo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsicoSystem - Prontuário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
 </head>
 
-<body onload="loadProntuario()">
+<body>
 
-<div class="prontuario-page">
+<div class="layout">
 
-  <!-- TOPO -->
-  <div class="prontuario-header">
-
-    <div>
-      <h1>Prontuário Digital</h1>
-      <p>Anotações clínicas e evolução terapêutica</p>
-    </div>
-
-  </div>
-
-  <!-- CONTEÚDO -->
-  <div class="prontuario-layout">
-
-    <!-- SIDEBAR PACIENTES -->
-    <aside class="patient-sidebar">
-
-      <input
-        type="text"
-        placeholder="Buscar paciente..."
-        id="searchPatient"
-      >
-
-      <div id="patientList"></div>
-
-    </aside>
-
-    <!-- PRONTUÁRIO -->
-    <main class="prontuario-content" id="prontuarioContent">
-
-      <div class="empty-prontuario">
-
-        <div class="empty-icon">
-          📄
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>🧠 Psico<span>System</span></h2>
+            <small>Gestão clínica</small>
         </div>
 
-        <h2>Selecione um paciente</h2>
+        <nav>
+            <h4>Principal</h4>
+            <a href="index.html"><span class="icon">📊</span> Dashboard</a>
+            <a href="agenda.html"><span class="icon">📅</span> Agenda</a>
+            <a href="pacientes.html"><span class="icon">👤</span> Pacientes</a>
+            <a href="prontuario.html" class="active"><span class="icon">📘</span> Prontuário</a>
+            <a href="sessoes.html"><span class="icon">💬</span> Sessões</a>
 
-        <p>
-          Escolha um paciente para visualizar o prontuário clínico.
-        </p>
+            <h4>Financeiro</h4>
+            <a href="consultorio.html"><span class="icon">🏢</span> Consultório</a>
+            <a href="pessoal.html"><span class="icon">👩‍⚕️</span> Pessoal</a>
 
-      </div>
+            <h4>Análise</h4>
+            <a href="relatorios.html"><span class="icon">📈</span> Relatórios</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="avatar">RM</div>
+            <h5>Richard Marques</h5>
+            <span class="role">Desenvolvedor Front-End</span>
+            <div class="contact-info">
+                <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="content prontuario-page">
+
+        <div class="prontuario-page">
+
+            <!-- TOPO -->
+            <div class="prontuario-header">
+                <div>
+                    <h1>Prontuário Digital</h1>
+                    <p>Anotações clínicas e evolução terapêutica</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO -->
+            <div class="prontuario-layout">
+
+                <!-- SIDEBAR PACIENTES -->
+                <aside class="patient-sidebar">
+                    <input type="text" placeholder="🔍 Buscar paciente..." id="searchPatient">
+                    <div id="patientList"></div>
+                </aside>
+
+                <!-- PRONTUÁRIO -->
+                <main class="prontuario-content" id="prontuarioContent">
+                    <div class="empty-prontuario">
+                        <div class="empty-icon">📄</div>
+                        <h2>Selecione um paciente</h2>
+                        <p>Escolha um paciente para visualizar o prontuário clínico.</p>
+                    </div>
+                </main>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER MOBILE -->
+        <div class="mobile-footer">
+            <div class="avatar" style="width:48px;height:48px;border-radius:50%;background:var(--secondary);display:flex;align-items:center;justify-content:center;font-size:20px;color:white;font-weight:600;margin:0 auto 12px;">RM</div>
+            <h4>Richard Marques</h4>
+            <p style="font-weight:500;color:var(--secondary);">Desenvolvedor Front-End</p>
+            <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            <a href="mailto:richardmarques.tb@gmail.com">📧 richardmarques.tb@gmail.com</a>
+        </div>
 
     </main>
-
-  </div>
 
 </div>
 
 <script src="./src/js/prontuario.js"></script>
+<script src="./src/js/app.js"></script>
 
 </body>
 </html>

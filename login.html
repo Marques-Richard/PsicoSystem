@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Sistema Psicológico</title>
-  <link rel="stylesheet" href="./src/css/style.css"/>
-  <link rel="stylesheet" href="./src/css/reset.css">
-  <link rel="stylesheet" href="./src/css/responsivo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsicoSystem - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
+
 <body class="login-body">
 
-  <div class="login-container">
-    <h1>PsicoSystem</h1>
-    <p>Acesso ao sistema</p>
+    <div class="login-container">
+        <div style="text-align:center;">
+            <span class="logo-icon">🧠</span>
+            <h1>PsicoSystem</h1>
+            <p>Faça login para acessar sua clínica</p>
+        </div>
 
-    <input type="text" id="user" placeholder="Usuário"/>
-    <input type="password" id="pass" placeholder="Senha"/>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="📧 admin@psico.com" value="admin@psico.com">
+            <input type="password" id="password" placeholder="🔒 Senha" value="123456">
+            <button type="submit">Entrar</button>
+        </form>
 
-    <button type="button" onclick="login()">Entrar</button>
+        <p style="text-align:center;margin-top:16px;font-size:13px;color:var(--text-light);">
+            Demo: admin@psico.com / 123456
+        </p>
+    </div>
 
-    <p id="error"></p>
-  </div>
+    <script src="./src/js/auth.js"></script>
 
-  <script src="./src/js/auth.js"></script>
 </body>
 </html>

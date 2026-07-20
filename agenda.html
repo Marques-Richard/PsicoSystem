@@ -1,128 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agenda</title>
-
-  <link rel="stylesheet" href="./src/css/style.css">
-  <link rel="stylesheet" href="./src/css/reset.css">
-  <link rel="stylesheet" href="./src/css/responsivo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsicoSystem - Agenda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
 </head>
 
-<body onload="loadAgenda()">
+<body>
 
-<div class="agenda-page">
+<div class="layout">
 
-  <!-- TOPO -->
-  <div class="agenda-header">
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>🧠 Psico<span>System</span></h2>
+            <small>Gestão clínica</small>
+        </div>
 
-    <div>
-      <h1>Agenda</h1>
-      <p>Visualização semanal de suas sessões</p>
-    </div>
+        <nav>
+            <h4>Principal</h4>
+            <a href="index.html"><span class="icon">📊</span> Dashboard</a>
+            <a href="agenda.html" class="active"><span class="icon">📅</span> Agenda</a>
+            <a href="pacientes.html"><span class="icon">👤</span> Pacientes</a>
+            <a href="prontuario.html"><span class="icon">📘</span> Prontuário</a>
+            <a href="sessoes.html"><span class="icon">💬</span> Sessões</a>
 
-    <button class="btn-primary">
-      + Nova Sessão
-    </button>
+            <h4>Financeiro</h4>
+            <a href="consultorio.html"><span class="icon">🏢</span> Consultório</a>
+            <a href="pessoal.html"><span class="icon">👩‍⚕️</span> Pessoal</a>
 
-  </div>
+            <h4>Análise</h4>
+            <a href="relatorios.html"><span class="icon">📈</span> Relatórios</a>
+        </nav>
 
-  <!-- NAVEGAÇÃO -->
-  <div class="week-nav">
+        <div class="sidebar-footer">
+            <div class="avatar">RM</div>
+            <h5>Richard Marques</h5>
+            <span class="role">Desenvolvedor Front-End</span>
+            <div class="contact-info">
+                <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            </div>
+        </div>
+    </aside>
 
-    <div class="week-buttons">
-      <button>‹</button>
-      <button>›</button>
-    </div>
+    <!-- CONTEÚDO -->
+    <main class="content agenda-page">  <!-- Mantém a classe aqui -->
 
-    <h2>11 de maio - 17 de maio de 2026</h2>
+        <!-- TOPO -->
+        <div class="agenda-header">
+            <div>
+                <h1>Agenda</h1>
+                <p>Visualização semanal de suas sessões</p>
+            </div>
+            <button class="btn-primary">➕ Nova Sessão</button>
+        </div>
 
-    <button class="today-btn">
-      Hoje
-    </button>
+        <!-- NAVEGAÇÃO -->
+        <div class="week-nav">
+            <div class="week-buttons">
+                <button>‹</button>
+                <button>›</button>
+            </div>
+            <h2>11 de maio - 17 de maio de 2026</h2>
+            <button class="today-btn">Hoje</button>
+        </div>
 
-  </div>
+        <!-- CALENDÁRIO -->
+        <div class="calendar">
+            <div class="calendar-header">
+                <div class="time-col">Horário</div>
+                <div class="day-header">SEGUNDA <span>11</span></div>
+                <div class="day-header">TERÇA <span>12</span></div>
+                <div class="day-header">QUARTA <span>13</span></div>
+                <div class="day-header">QUINTA <span>14</span></div>
+                <div class="day-header">SEXTA <span>15</span></div>
+                <div class="day-header">SÁBADO <span>16</span></div>
+                <div class="day-header active">DOMINGO <span>17</span></div>
+            </div>
+            <div class="calendar-body" id="calendarBody"></div>
+        </div>
 
-  <!-- AGENDA -->
-  <div class="calendar">
+        <!-- FOOTER MOBILE -->
+        <div class="mobile-footer">
+            <div class="avatar">RM</div>
+            <h4>Richard Marques</h4>
+            <p>Desenvolvedor Front-End</p>
+            <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            <a href="mailto:richardmarques.tb@gmail.com">📧 richardmarques.tb@gmail.com</a>
+        </div>
 
-    <!-- CABEÇALHO -->
-    <div class="calendar-header">
-
-      <div class="time-col">
-        Horário
-      </div>
-
-      <div class="day-header">SEGUNDA <span>11</span></div>
-      <div class="day-header">TERÇA <span>12</span></div>
-      <div class="day-header">QUARTA <span>13</span></div>
-      <div class="day-header">QUINTA <span>14</span></div>
-      <div class="day-header">SEXTA <span>15</span></div>
-      <div class="day-header">SÁBADO <span>16</span></div>
-      <div class="day-header active">DOMINGO <span>17</span></div>
-
-    </div>
-
-    <!-- CORPO -->
-    <div class="calendar-body" id="calendarBody"></div>
-
-  </div>
+    </main>
 
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-
-  <div class="modal-content details">
-
-    <button class="close" onclick="closeModal()">✕</button>
-
-    <h2>Detalhes da Sessão</h2>
-
-    <div class="patient-info">
-      <div class="avatar">👤</div>
-
-      <div>
-        <h3 id="modalPaciente">Maria Silva</h3>
-        <p>Atendimento Presencial</p>
-      </div>
+    <div class="modal-content">
+        <button class="close" onclick="closeModal()">✕</button>
+        <h2>Detalhes da Sessão</h2>
+        <div class="patient-info">
+            <div class="avatar">👤</div>
+            <div>
+                <h3 id="modalPaciente">Maria Silva</h3>
+                <p>Atendimento Presencial</p>
+            </div>
+        </div>
+        <div class="details-grid">
+            <div>
+                <small>Data:</small>
+                <strong>15 de maio de 2026</strong>
+            </div>
+            <div>
+                <small>Horário:</small>
+                <strong>09:00 - 10:00</strong>
+            </div>
+            <div>
+                <small>Valor:</small>
+                <strong>R$ 250</strong>
+            </div>
+            <div>
+                <small>Pagamento:</small>
+                <span class="badge paid">Pago</span>
+            </div>
+            <div>
+                <small>Status:</small>
+                <span class="badge done">Realizada</span>
+            </div>
+        </div>
     </div>
-
-    <div class="details-grid">
-
-      <div>
-        <small>Data:</small>
-        <strong>15 de maio de 2026</strong>
-      </div>
-
-      <div>
-        <small>Horário:</small>
-        <strong>09:00 - 10:00</strong>
-      </div>
-
-      <div>
-        <small>Valor:</small>
-        <strong>R$ 250</strong>
-      </div>
-
-      <div>
-        <small>Pagamento:</small>
-        <span class="badge paid">Pago</span>
-      </div>
-
-      <div>
-        <small>Status:</small>
-        <span class="badge done">Realizada</span>
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 <script src="./src/js/agenda.js"></script>
+<script src="./src/js/app.js"></script>
 
 </body>
 </html>

@@ -1,103 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Financeiro Pessoal</title>
-
-    <link rel="stylesheet" href="./src/css/style.css">
+    <title>PsicoSystem - Financeiro Pessoal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/responsivo.css">
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="loadPessoal()">
+<body>
 
-    <div class="pessoal-page">
+<div class="layout">
 
-        <!-- HEADER -->
-        <div class="pessoal-header">
-
-            <div>
-                <h1>Financeiro - Pessoal</h1>
-                <p>Despesas pessoais e investimentos profissionais</p>
-            </div>
-
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>🧠 Psico<span>System</span></h2>
+            <small>Gestão clínica</small>
         </div>
 
-        <!-- CARDS -->
-        <div class="pessoal-cards">
+        <nav>
+            <h4>Principal</h4>
+            <a href="index.html"><span class="icon">📊</span> Dashboard</a>
+            <a href="agenda.html"><span class="icon">📅</span> Agenda</a>
+            <a href="pacientes.html"><span class="icon">👤</span> Pacientes</a>
+            <a href="prontuario.html"><span class="icon">📘</span> Prontuário</a>
+            <a href="sessoes.html"><span class="icon">💬</span> Sessões</a>
 
-            <div class="pessoal-card">
+            <h4>Financeiro</h4>
+            <a href="consultorio.html"><span class="icon">🏢</span> Consultório</a>
+            <a href="pessoal.html" class="active"><span class="icon">👩‍⚕️</span> Pessoal</a>
 
-                <small>Total Despesas Pessoais</small>
+            <h4>Análise</h4>
+            <a href="relatorios.html"><span class="icon">📈</span> Relatórios</a>
+        </nav>
 
-                <h2>R$ 750</h2>
-
-                <p>2 despesas este mês</p>
-
+        <div class="sidebar-footer">
+            <div class="avatar">RM</div>
+            <h5>Richard Marques</h5>
+            <span class="role">Desenvolvedor Front-End</span>
+            <div class="contact-info">
+                <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
             </div>
-
-            <div class="pessoal-card">
-
-                <small>Recorrentes</small>
-
-                <h2>R$ 300</h2>
-
-                <p>1 despesa fixa</p>
-
-            </div>
-
-            <div class="pessoal-card warning">
-
-                <small>Avulsas</small>
-
-                <h2>R$ 450</h2>
-
-                <p>1 despesa avulsa</p>
-
-            </div>
-
         </div>
+    </aside>
 
-        <!-- GRID -->
-        <div class="pessoal-grid">
+    <!-- CONTEÚDO -->
+    <main class="content pessoal-page">
 
-            <!-- GRÁFICO -->
-            <div class="pessoal-chart">
+        <div class="pessoal-page">
 
-                <h3>Distribuição por Categoria</h3>
-
-                <canvas id="pessoalChart"></canvas>
-
+            <!-- HEADER -->
+            <div class="pessoal-header">
+                <div>
+                    <h1>👩‍⚕️ Financeiro - Pessoal</h1>
+                    <p>Despesas pessoais e investimentos profissionais</p>
+                </div>
             </div>
 
-            <!-- LISTA -->
-            <div class="pessoal-list">
+            <!-- CARDS -->
+            <div class="pessoal-cards">
+                <div class="pessoal-card">
+                    <small>Total Despesas Pessoais</small>
+                    <h2>R$ 0</h2>
+                    <p>0 despesas este mês</p>
+                </div>
+                <div class="pessoal-card">
+                    <small>Recorrentes</small>
+                    <h2>R$ 0</h2>
+                    <p>0 despesas fixas</p>
+                </div>
+                <div class="pessoal-card warning">
+                    <small>Avulsas</small>
+                    <h2>R$ 0</h2>
+                    <p>0 despesas avulsas</p>
+                </div>
+            </div>
 
-                <div class="list-header">
+            <!-- GRID -->
+            <div class="pessoal-grid">
 
-                    <h3>Despesas do Mês</h3>
-
-                    <button class="btn-primary">
-                        + Nova Despesa
-                    </button>
-
+                <!-- GRÁFICO -->
+                <div class="pessoal-chart">
+                    <h3>📊 Distribuição por Categoria</h3>
+                    <canvas id="pessoalChart"></canvas>
                 </div>
 
-                <div id="despesasList"></div>
+                <!-- LISTA -->
+                <div class="pessoal-list">
+                    <div class="list-header">
+                        <h3>📋 Despesas do Mês</h3>
+                        <button class="btn-primary" onclick="adicionarDespesa()">➕ Nova Despesa</button>
+                    </div>
+                    <div id="despesasList"></div>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+        <!-- FOOTER MOBILE -->
+        <div class="mobile-footer">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--secondary);display:flex;align-items:center;justify-content:center;font-size:20px;color:white;font-weight:600;margin:0 auto 12px;">RM</div>
+            <h4>Richard Marques</h4>
+            <p style="font-weight:500;color:var(--secondary);">Desenvolvedor Front-End</p>
+            <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
+            <a href="mailto:richardmarques.tb@gmail.com">📧 richardmarques.tb@gmail.com</a>
+        </div>
 
-    <script src="./src/js/pessoal.js"></script>
+    </main>
+
+</div>
+
+<script src="./src/js/pessoal.js"></script>
+<script src="./src/js/app.js"></script>
 
 </body>
-
 </html>

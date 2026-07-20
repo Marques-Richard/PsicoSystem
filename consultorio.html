@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PsicoSystem - Sessões</title>
+    <title>PsicoSystem - Consultório</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/reset.css">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/responsivo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -27,10 +28,10 @@
             <a href="agenda.html"><span class="icon">📅</span> Agenda</a>
             <a href="pacientes.html"><span class="icon">👤</span> Pacientes</a>
             <a href="prontuario.html"><span class="icon">📘</span> Prontuário</a>
-            <a href="sessoes.html" class="active"><span class="icon">💬</span> Sessões</a>
+            <a href="sessoes.html"><span class="icon">💬</span> Sessões</a>
 
             <h4>Financeiro</h4>
-            <a href="consultorio.html"><span class="icon">🏢</span> Consultório</a>
+            <a href="consultorio.html" class="active"><span class="icon">🏢</span> Consultório</a>
             <a href="pessoal.html"><span class="icon">👩‍⚕️</span> Pessoal</a>
 
             <h4>Análise</h4>
@@ -48,60 +49,61 @@
     </aside>
 
     <!-- CONTEÚDO -->
-    <main class="content sessoes-page">
+    <main class="content finance-page">
 
-        <div class="sessoes-page">
+        <div class="finance-page">
 
             <!-- HEADER -->
-            <div class="sessoes-header">
+            <div class="finance-header">
                 <div>
-                    <h1>Sessões</h1>
-                    <p>Gerenciamento de sessões e pagamentos</p>
+                    <h1>🏢 Financeiro - Consultório</h1>
+                    <p>Receitas e faturamento do consultório</p>
                 </div>
             </div>
 
-            <!-- ALERTA -->
-            <div class="payment-alert">
-                <div class="alert-left">
-                    ⚠️
-                    <strong>2 sessões realizadas aguardando pagamento</strong>
-                    <span>(R$ 450 pendente)</span>
+            <!-- CARDS -->
+            <div class="finance-cards">
+                <div class="finance-card">
+                    <small>Receita Total</small>
+                    <h2>R$ 700</h2>
+                    <p>3 sessões pagas</p>
+                </div>
+                <div class="finance-card">
+                    <small>A Receber</small>
+                    <h2>R$ 2.150</h2>
+                    <p>9 sessões pendentes</p>
+                </div>
+                <div class="finance-card danger">
+                    <small>Despesas</small>
+                    <h2>R$ 2.935</h2>
+                    <p>Despesas do consultório</p>
+                </div>
+                <div class="finance-card">
+                    <small>Lucro Líquido</small>
+                    <h2 style="color:#d9534f;">R$ -2.235</h2>
+                    <p>Receita - Despesas</p>
                 </div>
             </div>
 
-            <!-- FILTROS -->
-            <div class="sessoes-filters">
-                <input type="text" placeholder="🔍 Buscar por paciente...">
-                <select>
-                    <option>Todos os status</option>
-                    <option>Agendada</option>
-                    <option>Realizada</option>
-                    <option>Cancelada</option>
-                </select>
-                <select>
-                    <option>Todos</option>
-                    <option>Pago</option>
-                    <option>Pendente</option>
-                </select>
+            <!-- GRÁFICO -->
+            <div class="finance-chart">
+                <h3>📈 Receita Semanal - Maio 2026</h3>
+                <canvas id="financeChart"></canvas>
             </div>
 
             <!-- TABELA -->
-            <div class="table-container">
-                <h3>Sessões (12)</h3>
+            <div class="finance-table">
+                <h3>📋 Receitas por Sessão - Maio 2026</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Paciente</th>
                             <th>Data</th>
-                            <th>Horário</th>
-                            <th>Tipo</th>
-                            <th>Status</th>
                             <th>Valor</th>
-                            <th>Pagamento</th>
-                            <th>Ações</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody id="sessionsTable"></tbody>
+                    <tbody id="financeTable"></tbody>
                 </table>
             </div>
 
@@ -109,7 +111,7 @@
 
         <!-- FOOTER MOBILE -->
         <div class="mobile-footer">
-            <div class="avatar" style="width:48px;height:48px;border-radius:50%;background:var(--secondary);display:flex;align-items:center;justify-content:center;font-size:20px;color:white;font-weight:600;margin:0 auto 12px;">RM</div>
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--secondary);display:flex;align-items:center;justify-content:center;font-size:20px;color:white;font-weight:600;margin:0 auto 12px;">RM</div>
             <h4>Richard Marques</h4>
             <p style="font-weight:500;color:var(--secondary);">Desenvolvedor Front-End</p>
             <a href="https://wa.me/5548996317414" target="_blank">📱 (48) 99631-7414</a>
@@ -120,7 +122,7 @@
 
 </div>
 
-<script src="./src/js/sessoes.js"></script>
+<script src="./src/js/financeiro.js"></script>
 <script src="./src/js/app.js"></script>
 
 </body>
